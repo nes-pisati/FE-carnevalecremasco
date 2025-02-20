@@ -31,7 +31,7 @@ export default function VoteCard({ id, title, group, description, onClick, onVot
                     <h3 className={Styles.group}>{group}</h3>
                     <p className={Styles.description}>{description}</p>
                 </div>
-                <div className="flex flex-col fixed bottom-0 w-full pb-6">
+                <div className="flex flex-col w-full pb-6">
                     <form className="flex flex-col items-center justify-center">
                         <fieldset className="flex">
                             <StarRate setRating={setRating} />
