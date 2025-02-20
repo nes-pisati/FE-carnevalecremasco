@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Styles from '../VoteCard/VoteCard.module.css'
 
 import StarRate from "../StarRate/StarRate";
