@@ -5,6 +5,7 @@ import Votes from './pages/frontoffice/Votes';
 import Login from './pages/backoffice/Login';
 import Dashboard from './pages/backoffice/Dashboard';
 import Homepage from './pages/frontoffice/Homepage';
+import HomepageNoVotes from './components/HomepageNoVotes/HomepageNoVotesComponent';
 
 function App() {
   return (
@@ -28,9 +29,15 @@ function AppContent() {
         {/* Backoffice */}
         <Route path='/login' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        
         {/* Frontoffice */}
-        <Route path='/' element={<Homepage />} />
-        <Route path='/votes' element={<Votes />} />
+
+        {/* Routes da attivare durante le domeniche di sfilata */}
+        {/* <Route path='/' element={<Homepage />} /> */}
+        {/* <Route path='/votes' element={<Votes />} /> */}
+
+        {/* Homepage Placeholder */}
+        <Route path='/' element={<HomepageNoVotes />} />
       </Routes>
     </div>
   );
