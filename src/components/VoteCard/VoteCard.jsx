@@ -17,8 +17,7 @@ export default function VoteCard({ id, title, group, description, onClick, onVot
         onVoteSubmit(id, rating);
         onClick();
     };
-
-
+    
     return (
         <>
             <div className="flex flex-col items-center justify-center h-full pt-4">

@@ -6,6 +6,7 @@ import Login from './pages/backoffice/Login';
 import Dashboard from './pages/backoffice/Dashboard';
 import Homepage from './pages/frontoffice/Homepage';
 import HomepageNoVotes from './components/HomepageNoVotes/HomepageNoVotesComponent';
+import ThankYou from './components/ThankYou/ThankYou';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function AppContent() {
 
   const containerClass = isBackOffice ? 'backoffice' : 'frontoffice';
 
+  const hasAlreadyVoted = localStorage.getItem('voto');
+
   return (
     <div className={`App ${containerClass}`}>
       <Routes>
@@ -33,11 +36,11 @@ function AppContent() {
         {/* Frontoffice */}
 
         {/* Routes da attivare durante le domeniche di sfilata */}
-        {/* <Route path='/' element={<Homepage />} /> */}
-        {/* <Route path='/votes' element={<Votes />} /> */}
+        <Route path='/' element={hasAlreadyVoted ? <ThankYou /> : <Homepage />} />
+        <Route path='/votes' element={hasAlreadyVoted ? <ThankYou /> : <Votes />} />
 
         {/* Homepage Placeholder */}
-        <Route path='/' element={<HomepageNoVotes />} />
+        {/* <Route path='/' element={<HomepageNoVotes />} /> */}
       </Routes>
     </div>
   );

@@ -18,18 +18,15 @@ export default function Votes() {
             } catch (e) {
                 console.error(e)
             }
-        }; getCarri()
+        };
+        getCarri()
     }, [])
 
     const handleVoteSubmit = async (id, rating) => {
 
-        // if (rating === null) {
-        //     alert("Seleziona un voto prima di inviare!");
-        //     return;
-        // }
-
         try {
             await axios.post(`${API_URL}/votes/${id}`, { vote: rating });
+
         } catch (e) {
             console.error(e);
             alert("Errore nell'invio del voto.");
@@ -40,6 +37,12 @@ export default function Votes() {
         if (currentIndex < carri.length) {
             setCurrentIndex(currentIndex + 1)
         }
+    }
+
+    if(currentIndex === carri.length-1) {
+        console.log("last carro");
+        
+        localStorage.setItem('voto', 'true')
     }
 
     return (
