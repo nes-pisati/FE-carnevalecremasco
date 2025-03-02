@@ -36,11 +36,11 @@ function AppContent() {
         {/* Frontoffice */}
 
         {/* Routes da attivare durante le domeniche di sfilata */}
-        <Route path='/' element={hasAlreadyVoted ? <ThankYou /> : <Homepage />} />
-        <Route path='/votes' element={hasAlreadyVoted ? <ThankYou /> : <Votes />} />
+        {/* <Route path='/' element={hasAlreadyVoted ? <ThankYou /> : <Homepage />} />
+        <Route path='/votes' element={hasAlreadyVoted ? <ThankYou /> : <Votes />} /> */}
 
         {/* Homepage Placeholder */}
-        {/* <Route path='/' element={<HomepageNoVotes />} /> */}
+        <Route path='/' element={<HomepageNoVotes />} />
       </Routes>
     </div>
   );
