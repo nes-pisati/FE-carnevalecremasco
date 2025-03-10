@@ -9,9 +9,9 @@ export default function DashboardCard({ title, votes, img, onDelete }) {
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white leading-none">{title}</h5>
                     <div className="mt-auto flex justify-between items-center">
                         <p className=" text-gray-700 dark:text-gray-400 mb-0">{votes}</p>
-                        <button className="bg-transparent border-2 border-red-500 text-red-500 font-bold py-1 px-2 rounded-3xl" onClick={onDelete}>
+                        {/* <button className="bg-transparent border-2 border-red-500 text-red-500 font-bold py-1 px-2 rounded-3xl" onClick={onDelete}>
                             Azzera
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </div>

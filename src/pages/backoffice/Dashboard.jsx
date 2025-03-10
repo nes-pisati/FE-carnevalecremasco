@@ -21,14 +21,14 @@ export default function Dashboard() {
     // Aggiungi controllo per accesso: se nel localstorage non ci sono dati non fa visualizzare dashboard
 
     // Logica per azzerare i voti
-    const deleteVotes = async ({carroId}) => {
+    const deleteVotes = async ({ carroId }) => {
         try {
             const response = await axios.delete(`${API_URL}/votes/delete-votes`, {
-                data: { carroId: carroId }  
+                data: { carroId: carroId }
             });
 
             setRefresh(prev => !prev)
-            
+
         } catch (error) {
             console.error(error)
         }
@@ -37,7 +37,7 @@ export default function Dashboard() {
     };
 
     useEffect(() => {
-        if(!token) {
+        if (!token) {
             navigate('/login')
         }
 
@@ -48,13 +48,17 @@ export default function Dashboard() {
             } catch (e) {
                 console.error(e)
             }
-        }; 
+        };
         getCarri()
     }, [refresh])
 
+    // const deleteAll = () => {
+    //     window.confirm("Sei sicuro di voler eliminare tutti i voti?")
+    // }
+
     return (
         <section className="bg-gray-900 h-fit md:h-screen p-20">
-            <div className="flex flex-col gap-16 sm:gap-">
+            <div className="flex flex-col gap-16">
                 <div className="text-white text-4xl font-bold">
                     <h1 className="title">Elenco dei carri con il totale dei voti</h1>
                 </div>
@@ -65,11 +69,16 @@ export default function Dashboard() {
                             title={carro.title}
                             votes={carro.totaleVoti}
                             img={carro.image}
-                            onDelete={() => deleteVotes({carroId: carro._id})}
+                        // onDelete={() => deleteVotes({carroId: carro._id})}
                         />
                     )
                     )}
                 </div>
+                {/* <div>
+                    <button className="bg-transparent border-2 border-red-500 text-red-500 font-bold py-1 px-2 rounded-3xl" onClick={deleteAll}>
+                        Azzera
+                    </button>
+                </div> */}
             </div>
         </section>
     )
